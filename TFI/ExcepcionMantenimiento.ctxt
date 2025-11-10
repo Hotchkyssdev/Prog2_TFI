@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.target=ExcepcionMantenimiento
+comment1.params=msg
+comment1.target=ExcepcionMantenimiento(java.lang.String)
+numComments=2

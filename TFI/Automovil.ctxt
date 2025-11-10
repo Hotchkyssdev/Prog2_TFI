@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Automovil
+comment1.params=marca\ modelo\ a\u00F1o\ color\ carroceria
+comment1.target=Automovil(java.lang.String,\ java.lang.String,\ int,\ java.lang.String,\ TipoCarroceria)
+comment2.params=
+comment2.target=void\ mostrarDatos()
+numComments=3

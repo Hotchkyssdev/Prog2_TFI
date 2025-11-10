@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.target=ExcepcionKilometraje
+comment1.params=msg
+comment1.target=ExcepcionKilometraje(java.lang.String)
+numComments=2

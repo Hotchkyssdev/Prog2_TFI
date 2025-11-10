@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Usado
+comment1.params=marca\ modelo\ a\u00F1o\ color\ carroceria\ km
+comment1.target=Usado(java.lang.String,\ java.lang.String,\ int,\ java.lang.String,\ TipoCarroceria,\ int)
+comment2.params=
+comment2.target=void\ realizarMantenimiento()
+numComments=3
