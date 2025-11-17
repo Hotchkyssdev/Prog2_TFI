@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=Vehiculo
+comment1.params=marca\ modelo\ anio\ color\ esUsado
+comment1.target=Vehiculo(java.lang.String,\ java.lang.String,\ int,\ Color,\ boolean)
+comment2.params=
+comment2.target=java.lang.String\ obtenerTipoEspecifico()
+comment3.params=
+comment3.target=double\ calcularPrecio()
+comment4.params=
+comment4.target=boolean\ necesitaTaller()
+comment5.params=
+comment5.target=java.lang.String\ obtenerDatosBase()
+comment6.params=
+comment6.target=java.lang.String\ toString()
+numComments=7

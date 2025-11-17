@@ -1,0 +1,3 @@
+public enum TipoCamioneta {
+    UTILITARIA, PICKUPMEDIANA, PICKUPGRANDE, SUVGRANDE;
+}
