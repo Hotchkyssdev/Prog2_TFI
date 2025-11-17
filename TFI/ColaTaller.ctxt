@@ -1,9 +1,0 @@
-#BlueJ class context
-comment0.target=ColaTaller
-comment1.params=elemento
-comment1.target=void\ encolar(java.lang.Object)
-comment2.params=
-comment2.target=java.lang.Object\ desencolar()
-comment3.params=
-comment3.target=boolean\ estaVacia()
-numComments=4

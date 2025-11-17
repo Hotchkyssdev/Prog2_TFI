@@ -1,7 +1,0 @@
-#BlueJ class context
-comment0.target=RepositorioVehiculos
-comment1.params=v
-comment1.target=void\ agregar(Vehiculo)
-comment2.params=
-comment2.target=java.util.List\ obtenerTodos()
-numComments=3
