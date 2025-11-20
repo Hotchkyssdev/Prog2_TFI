@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=ColaTaller
+comment1.params=
+comment1.target=ColaTaller()
+comment2.params=vehiculo
+comment2.target=void\ agregarACola(Vehiculo)
+comment3.params=
+comment3.target=Vehiculo\ siguienteVehiculo()
+comment4.params=
+comment4.target=boolean\ estaVacia()
+numComments=5

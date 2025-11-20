@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=RepositorioVehiculos
+comment1.params=
+comment1.target=RepositorioVehiculos()
+comment2.params=
+comment2.target=void\ cargarDatos()
+comment3.params=
+comment3.target=void\ guardarDatos()
+comment4.params=vehiculo
+comment4.target=boolean\ agregarVehiculo(Vehiculo)
+comment5.params=marca\ modelo
+comment5.target=boolean\ eliminarVehiculo(java.lang.String,\ java.lang.String)
+comment6.params=marca\ modelo
+comment6.target=Vehiculo\ buscarVehiculo(java.lang.String,\ java.lang.String)
+comment7.params=
+comment7.target=java.util.List\ obtenerTodos()
+comment8.params=
+comment8.target=java.util.List\ obtenerUsadosParaTaller()
+numComments=9

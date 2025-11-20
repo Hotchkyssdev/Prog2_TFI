@@ -1,32 +1,11 @@
+import java.time.Year;
+
 public class Automovil extends Vehiculo {
 
     private TipoCarroceria carroceria;
     private static final double PRECIO_BASE_FABRICA = 20000.00; 
-
-    public Automovil() {
-        super("", "", 0, null, false); 
-    }
-
-    public String obtenerTipoEspecifico() {
-        return "Tipo de Carrocería: " + this.carroceria.name();
-    }
     
-    public double calcularPrecio() {
-        double precioFinal = PRECIO_BASE_FABRICA;
-        
-        if (this.esUsado) { 
-            precioFinal *= 0.80; 
-            if (this.mantenimientoPreventivoVentaRealizado) {
-                 precioFinal += 500.00;
-            }
-        } else {
-            precioFinal *= 1.10;
-        }
-        
-        return precioFinal;
-    }
-    
-    public TipoCarroceria getCarroceria() { 
+        public TipoCarroceria getCarroceria() { 
         return carroceria; 
     }
 
@@ -54,10 +33,15 @@ public class Automovil extends Vehiculo {
         return anio; 
     }
 
-    public void setAnio(int anio) { 
+    public void setAnio(int anio) throws ExcepcionVehiculoInvalido {
+        int anioActual = Year.now().getValue();
+        if (anio < 1900 || anio > anioActual) {
+            throw new ExcepcionVehiculoInvalido(
+                "El año del vehículo (" + anio + ") es inválido. Debe estar entre 1900 y " + anioActual + ".");
+        }
         this.anio = anio;
     }
-
+    
     public Color getColor() { 
         return color;
     }
@@ -80,5 +64,26 @@ public class Automovil extends Vehiculo {
     
     public void setMantenimientoPreventivoVentaRealizado(boolean mantenimiento) {
         this.mantenimientoPreventivoVentaRealizado = mantenimiento;
+    }
+    
+    public Automovil() {
+        super("", "", 0, null, false); 
+    }
+
+    public String obtenerTipoEspecifico() {
+        return "Tipo de Carrocería: " + this.carroceria.name();
+    }
+    
+    public double calcularPrecio() {
+        double precioFinal = PRECIO_BASE_FABRICA;
+        if (this.esUsado) { 
+            precioFinal *= 0.80; 
+            if (this.mantenimientoPreventivoVentaRealizado) {
+                 precioFinal += 500.00;
+            }
+        } else {
+            precioFinal *= 1.10;
+        }
+        return precioFinal;
     }
 }

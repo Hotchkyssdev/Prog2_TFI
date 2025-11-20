@@ -1,10 +1,41 @@
-public abstract class Vehiculo {
+import java.io.Serializable;
+
+public abstract class Vehiculo implements Serializable {
+    private static final long serialVersionUID = 1L;
     protected String marca;
     protected String modelo;
     protected int anio;
     protected Color color;
     protected boolean esUsado;
     protected boolean mantenimientoPreventivoVentaRealizado;
+    
+    public String getMarca() { 
+        return marca; 
+    }
+    
+    public String getModelo() { 
+        return modelo; 
+    }
+    
+    public int getAnio() { 
+        return anio; 
+    }
+    
+    public Color getColor() { 
+        return color; 
+    }
+    
+    public boolean isEsUsado() { 
+        return esUsado; 
+    }
+    
+    public boolean isMantenimientoPreventivoVentaRealizado() { 
+        return mantenimientoPreventivoVentaRealizado; 
+    }
+    
+    public void setMantenimientoPreventivoVentaRealizado(boolean mantenimiento) {
+        this.mantenimientoPreventivoVentaRealizado = mantenimiento;
+    }
     
     public Vehiculo(String marca, String modelo, int anio, Color color, boolean esUsado) {
         this.marca = marca;

@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=TallerServicio
+comment1.params=
+comment1.target=TallerServicio()
+comment2.params=
+comment2.target=TallerServicio\ getServicio()
+comment3.params=vehiculo
+comment3.target=boolean\ verificarEstado(Vehiculo)
+comment4.params=vehiculo
+comment4.target=boolean\ realizarMantenimientoPreventivo(Vehiculo)
+comment5.params=vehiculo
+comment5.target=boolean\ realizarLavadoYDetallado(Vehiculo)
+numComments=6

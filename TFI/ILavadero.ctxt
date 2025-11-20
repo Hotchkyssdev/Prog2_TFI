@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.target=ILavadero
+comment1.params=vehiculo
+comment1.target=boolean\ realizarLavadoYDetallado(Vehiculo)
+numComments=2
