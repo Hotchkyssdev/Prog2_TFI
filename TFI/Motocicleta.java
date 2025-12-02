@@ -87,15 +87,26 @@ public class Motocicleta extends Vehiculo {
     public Motocicleta() {
         super("", "", 0, null, false);
     }
-
+    
+    public Motocicleta(String marca, String modelo, int anio, Color color, boolean esUsado, 
+                        TipoMotocicleta tipoMotocicleta, int cilindradaCm3, boolean tieneCajaCambios) {
+        super(marca, modelo, anio, color, esUsado);
+        this.tipoMotocicleta = tipoMotocicleta;
+        this.cilindradaCm3 = cilindradaCm3;
+        this.tieneCajaCambios = tieneCajaCambios;
+    }
+    
     public String obtenerTipoEspecifico() {
+        //Si el tipoMotocicleta es null, se usa el String "Tipo NO ESPECIFICADO" en su lugar.
+        String tipo = (this.tipoMotocicleta != null) ? this.tipoMotocicleta.name() : "Tipo NO ESPECIFICADO";
         String caja = this.tieneCajaCambios ? " con caja" : " automática";
-        return "Tipo: " + this.tipoMotocicleta.name() + ", Cilindrada: " + this.cilindradaCm3 + " cm³" + caja;
+        
+        return "Tipo: " + tipo + ", Cilindrada: " + this.cilindradaCm3 + " cm³" + caja;
     }
 
     public double calcularPrecio() {
         double precioFinal = PRECIO_BASE_FABRICA_MOTO;
-        
+         
         if (this.cilindradaCm3 > 500) {
              precioFinal *= 1.20;
         }

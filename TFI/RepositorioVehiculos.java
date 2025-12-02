@@ -60,7 +60,14 @@ public class RepositorioVehiculos<T extends Vehiculo> implements Serializable {
         }
         return null; 
     }
-
+    
+    public List<T> buscarTodosPorMarcaYModelo(String marca, String modelo) {
+        return inventario.stream()
+                .filter(v -> v.getMarca().equalsIgnoreCase(marca) && 
+                             v.getModelo().equalsIgnoreCase(modelo))
+                .collect(Collectors.toList()); //Retorna todos los resultados como una lista
+    }
+    
     public List<T> obtenerTodos() {
         return new ArrayList<>(inventario); 
     }
@@ -69,5 +76,9 @@ public class RepositorioVehiculos<T extends Vehiculo> implements Serializable {
         return inventario.stream()
                 .filter(Vehiculo::necesitaTaller)
                 .collect(Collectors.toList());
+    }
+    
+    public void limpiarInventarioParaSimulacion() {
+        this.inventario.clear(); 
     }
 }

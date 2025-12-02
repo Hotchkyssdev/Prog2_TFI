@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Main
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=entradaUsuario\ auto
+comment2.target=void\ ingresarAnioDesdeUsuario(java.lang.String,\ Automovil)
+comment3.params=repo
+comment3.target=void\ imprimirInventario(RepositorioVehiculos)
+numComments=4
