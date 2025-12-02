@@ -97,10 +97,8 @@ public class Motocicleta extends Vehiculo {
     }
     
     public String obtenerTipoEspecifico() {
-        //Si el tipoMotocicleta es null, se usa el String "Tipo NO ESPECIFICADO" en su lugar.
         String tipo = (this.tipoMotocicleta != null) ? this.tipoMotocicleta.name() : "Tipo NO ESPECIFICADO";
         String caja = this.tieneCajaCambios ? " con caja" : " automática";
-        
         return "Tipo: " + tipo + ", Cilindrada: " + this.cilindradaCm3 + " cm³" + caja;
     }
 
@@ -120,5 +118,71 @@ public class Motocicleta extends Vehiculo {
             precioFinal *= 1.10;
         }
         return precioFinal;
+    }
+    
+    public String toString() {
+        String caja;
+        if (tieneCajaCambios) {
+            caja = "manual";
+        } else {
+            caja = "automática"; 
+        }
+        
+        return super.toString() + ", Tipo: " + this.tipoMotocicleta.name() + ", Cilindrada: " + this.cilindradaCm3 + " cm³ con caja " + caja;
+    }
+    
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        
+        if (!super.equals(o)) {
+            return false; 
+        }
+        
+        Motocicleta motocicleta = (Motocicleta) o;
+        
+        if (cilindradaCm3 != motocicleta.cilindradaCm3) {
+            return false;
+        }
+        
+        if (tieneCajaCambios != motocicleta.tieneCajaCambios) {
+            return false;
+        }
+        
+        if (tipoMotocicleta == null) {
+            if (motocicleta.tipoMotocicleta != null) {
+                return false; 
+            }
+        } else {
+            if (motocicleta.tipoMotocicleta == null || tipoMotocicleta != motocicleta.tipoMotocicleta) {
+                return false; 
+            }
+        }
+        
+        return true; 
+    }
+    
+    public int hashCode() {
+        int result = super.hashCode(); 
+        
+        result = 31 * result + cilindradaCm3;
+        
+        //La convención de Java para booleans es 1231 para true y 1237 para false.
+        int cajaHash;
+        if (tieneCajaCambios) {
+            cajaHash = 1231;
+        } else {
+            cajaHash = 1237;
+        }
+        result = 31 * result + cajaHash;
+        
+        int tipoHash = 0;
+        if (tipoMotocicleta != null) {
+            tipoHash = tipoMotocicleta.hashCode();
+        }
+        result = 31 * result + tipoHash;
+        
+        return result;
     }
 }

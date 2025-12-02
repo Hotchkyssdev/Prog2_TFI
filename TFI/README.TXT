@@ -4,10 +4,9 @@ Tell the reader (someone who does not know anything about this project)
 all they need to know. The comments should usually include at least:
 ------------------------------------------------------------------------
 
-PROJECT TITLE: TFI_ProgramaciónII
+PROJECT TITLE:
 PURPOSE OF PROJECT:
-VERSION or DATE: 1/12/25
+VERSION or DATE:
 HOW TO START THIS PROJECT:
-AUTHORS: Hotchkyss, Gersom Tomás
+AUTHORS:
 USER INSTRUCTIONS:
-

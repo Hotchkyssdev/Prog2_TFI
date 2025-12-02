@@ -71,8 +71,64 @@ public abstract class Vehiculo implements Serializable {
             ". Estado: " + estado + detalleMantenimiento;
     }
     
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        
+        Vehiculo vehiculo = (Vehiculo) o;
+                
+        if (anio != vehiculo.anio) {
+            return false;
+        }
+        
+        if (marca == null) {
+            if (vehiculo.marca != null) {
+                return false; 
+            }
+        } else {
+            if (vehiculo.marca == null || !marca.equalsIgnoreCase(vehiculo.marca)) {
+                return false; 
+            }
+        }
+        
+        if (modelo == null) {
+            if (vehiculo.modelo != null) {
+                return false;
+            }
+        } else {
+            if (vehiculo.modelo == null || !modelo.equalsIgnoreCase(vehiculo.modelo)) {
+                return false;
+            }
+        }
+        
+        return true;
+    }
+
+    public int hashCode() {
+        int result = 1; 
+        result = 31 * result + anio;
+        
+        int marcaHash = 0;
+        if (marca != null) {
+            marcaHash = marca.toLowerCase().hashCode();
+        }
+        result = 31 * result + marcaHash;
+        
+        int modeloHash = 0;
+        if (modelo != null) {
+            modeloHash = modelo.toLowerCase().hashCode();
+        }
+        result = 31 * result + modeloHash;
+        
+        return result;
+    }
+    
     public String toString() {
-        return obtenerDatosBase() + ", " + obtenerTipoEspecifico() +
-            ", Precio Estimado: " + calcularPrecio();
+        return obtenerDatosBase() + ", Precio Estimado: " + calcularPrecio();
     }
 }

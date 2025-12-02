@@ -87,10 +87,19 @@ public class Camioneta extends Vehiculo {
     public Camioneta() {
         super("", "", 0, null, false);
     }
+    
+    public Camioneta(String marca, String modelo, int anio, Color color, boolean esUsado, 
+                     TipoCamioneta tipoCamioneta, int capacidadCargaKg, boolean tieneDobleTraccion) {
+        super(marca, modelo, anio, color, esUsado);
+        this.tipoCamioneta = tipoCamioneta;
+        this.capacidadCargaKg = capacidadCargaKg;
+        this.tieneDobleTraccion = tieneDobleTraccion;
+    }
 
     public String obtenerTipoEspecifico() {
+        String tipo = (this.tipoCamioneta != null) ? this.tipoCamioneta.name() : "Tipo NO ESPECIFICADO"; 
         String traccion = this.tieneDobleTraccion ? "4x4" : "4x2";
-        return "Tipo: " + this.tipoCamioneta.name() + ", Carga: " + this.capacidadCargaKg + " Kg, Tracción: " + traccion;
+        return "Tipo: " + tipo + ", Carga: " + this.capacidadCargaKg + " Kg, Tracción: " + traccion;
     }
     
     public double calcularPrecio() {
@@ -110,5 +119,55 @@ public class Camioneta extends Vehiculo {
         }
         
         return precioFinal;
+    }
+    
+    public String toString() {
+        String traccion;
+        if (tieneDobleTraccion) {
+            traccion = "4x4";
+        } else {
+            traccion = "Simple";
+        }
+        
+        return super.toString() + ", Carga: " + this.capacidadCargaKg + " Kg, Tracción: " + traccion;
+    }
+    
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        
+        if (!super.equals(o)) {
+            return false;
+        }
+        
+        Camioneta camioneta = (Camioneta) o;
+        
+        if (capacidadCargaKg != camioneta.capacidadCargaKg) {
+            return false;
+        }
+        
+        if (tieneDobleTraccion != camioneta.tieneDobleTraccion) {
+            return false;
+        }
+        
+        return true; 
+    }
+    
+    public int hashCode() {
+        int result = super.hashCode(); 
+
+        result = 31 * result + capacidadCargaKg;
+        
+        //La convención de Java para booleans es 1231 para true y 1237 para false.
+        int traccionHash;
+        if (tieneDobleTraccion) {
+            traccionHash = 1231;
+        } else {
+            traccionHash = 1237;
+        }
+        result = 31 * result + traccionHash;
+        
+        return result;
     }
 }

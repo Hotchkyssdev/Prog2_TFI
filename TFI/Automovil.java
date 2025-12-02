@@ -69,21 +69,68 @@ public class Automovil extends Vehiculo {
     public Automovil() {
         super("", "", 0, null, false); 
     }
+    
+    public Automovil(String marca, String modelo, int anio, Color color, boolean esUsado, 
+                 TipoCarroceria carroceria) {
+        super(marca, modelo, anio, color, esUsado);
+        this.carroceria = carroceria;
+    }
 
     public String obtenerTipoEspecifico() {
-        return "Tipo de Carrocería: " + this.carroceria.name();
-    }
+        String tipo = (this.carroceria != null) ? this.carroceria.name() : "Tipo NO ESPECIFICADO"; 
+        return "Tipo de Carrocería: " + tipo;
+    }   
     
     public double calcularPrecio() {
         double precioFinal = PRECIO_BASE_FABRICA;
         if (this.esUsado) { 
             precioFinal *= 0.80; 
             if (this.mantenimientoPreventivoVentaRealizado) {
-                 precioFinal += 500.00;
+                precioFinal += 500.00;
             }
         } else {
             precioFinal *= 1.10;
         }
         return precioFinal;
+    }
+    
+    public String toString() {
+        return super.toString() + ", " + obtenerTipoEspecifico();
+    }
+    
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+   
+        if (!super.equals(o)) {
+            return false; 
+        }
+        
+        Automovil automovil = (Automovil) o;
+
+        if (carroceria == null) {
+            if (automovil.carroceria != null) {
+                return false;
+            }
+        } else {
+            if (automovil.carroceria == null || carroceria != automovil.carroceria) {
+                return false;
+            }
+        }
+        
+        return true; 
+    }
+
+    public int hashCode() {
+        int result = super.hashCode(); 
+        
+        int carroceriaHash = 0;
+        if (carroceria != null) {
+            carroceriaHash = carroceria.hashCode();
+        }
+        result = 31 * result + carroceriaHash;
+        
+        return result;
     }
 }

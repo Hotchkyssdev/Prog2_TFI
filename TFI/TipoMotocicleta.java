@@ -1,3 +1,3 @@
 public enum TipoMotocicleta {
-    SPORT, CUSTOM, SCOOTER, NAKED;
+    SPORT, CUSTOM, SCOOTER, NAKED, TOURING;
 }
