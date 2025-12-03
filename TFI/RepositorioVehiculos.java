@@ -79,8 +79,4 @@ public class RepositorioVehiculos<T extends Vehiculo> implements Serializable {
                 .filter(Vehiculo::necesitaTaller)
                 .collect(Collectors.toList());
     }
-    
-    public void limpiarInventarioParaSimulacion() {
-        this.inventario.clear(); 
-    }
 }

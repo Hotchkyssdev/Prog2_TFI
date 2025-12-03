@@ -4,7 +4,7 @@ public class Automovil extends Vehiculo {
     private TipoCarroceria carroceria;
     private static final double PRECIO_BASE_FABRICA = 20000.00; 
     
-        public TipoCarroceria getCarroceria() { 
+    public TipoCarroceria getCarroceria() { 
         return carroceria; 
     }
 
