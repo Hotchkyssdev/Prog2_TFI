@@ -1,7 +1,6 @@
 import java.time.Year;
 
 public class Camioneta extends Vehiculo {
-    
     private TipoCamioneta tipoCamioneta;
     private int capacidadCargaKg; 
     private boolean tieneDobleTraccion; 
@@ -84,7 +83,7 @@ public class Camioneta extends Vehiculo {
         this.mantenimientoPreventivoVentaRealizado = mantenimiento;
     }
     
-    public Camioneta() {
+    public Camioneta(String marca, String modelo, int anio, Color color, boolean esUsado, boolean dobleTraccion, int capacidad) {
         super("", "", 0, null, false);
     }
     
@@ -169,5 +168,12 @@ public class Camioneta extends Vehiculo {
         result = 31 * result + traccionHash;
         
         return result;
+    }
+
+    public String getDetallesEspecificos() {
+        return String.format("Tipo: %s, Carga: %d kg, 4x4: %s", 
+                             this.tipoCamioneta, 
+                             this.capacidadCargaKg, 
+                             this.tieneDobleTraccion ? "Sí" : "No");
     }
 }

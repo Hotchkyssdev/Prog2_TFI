@@ -46,9 +46,6 @@ public abstract class Vehiculo implements Serializable {
         this.mantenimientoPreventivoVentaRealizado = false;
     }
     
-    public abstract String obtenerTipoEspecifico();
-    public abstract double calcularPrecio();
-    
     public boolean necesitaTaller() {
         return this.esUsado && !this.mantenimientoPreventivoVentaRealizado;
     }
@@ -131,4 +128,8 @@ public abstract class Vehiculo implements Serializable {
     public String toString() {
         return obtenerDatosBase() + ", Precio Estimado: " + calcularPrecio();
     }
+
+    public abstract String obtenerTipoEspecifico();
+    public abstract double calcularPrecio();
+    public abstract String getDetallesEspecificos();
 }

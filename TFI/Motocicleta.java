@@ -1,7 +1,6 @@
 import java.time.Year;
 
 public class Motocicleta extends Vehiculo {
-    
     private TipoMotocicleta tipoMotocicleta;
     private int cilindradaCm3; 
     private boolean tieneCajaCambios; 
@@ -184,5 +183,12 @@ public class Motocicleta extends Vehiculo {
         result = 31 * result + tipoHash;
         
         return result;
+    }
+
+    public String getDetallesEspecificos() {
+        return String.format("Cilindrada: %d cc, Tipo: %s, Caja de Cambios: %s",
+                             this.cilindradaCm3,
+                             this.tipoMotocicleta,
+                             this.tieneCajaCambios ? "Sí" : "No");
     }
 }

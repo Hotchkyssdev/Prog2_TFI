@@ -1,7 +1,6 @@
 import java.time.Year;
 
 public class Automovil extends Vehiculo {
-
     private TipoCarroceria carroceria;
     private static final double PRECIO_BASE_FABRICA = 20000.00; 
     
@@ -132,5 +131,9 @@ public class Automovil extends Vehiculo {
         result = 31 * result + carroceriaHash;
         
         return result;
+    }
+
+    public String getDetallesEspecificos() {
+        return "Carrocería: " + this.carroceria; 
     }
 }

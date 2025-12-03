@@ -16,19 +16,21 @@ public class RepositorioVehiculos<T extends Vehiculo> implements Serializable {
 
     public RepositorioVehiculos() {
         this.inventario = new ArrayList<>();
-        cargarDatos(); 
     }
 
-    private void cargarDatos() {
+    public void cargarDatos() throws IOException, ClassNotFoundException {
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(NOMBRE_ARCHIVO))) {
-            this.inventario = (List<T>) ois.readObject();
+            this.inventario = (List<T>) ois.readObject(); 
             System.out.println("Carga de datos exitosa desde " + NOMBRE_ARCHIVO);
         } catch (IOException | ClassNotFoundException e) {
             System.out.println("Archivo de inventario no encontrado o primera ejecución. Se inicia vacío.");
+            if (this.inventario == null) {
+                this.inventario = new ArrayList<>();
+            }
         }
     }
 
-    public void guardarDatos() {
+    public void guardarDatos() throws IOException, ClassNotFoundException {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(NOMBRE_ARCHIVO))) {
             oos.writeObject(this.inventario);
             System.out.println("Guardado de datos exitoso en " + NOMBRE_ARCHIVO);
@@ -48,7 +50,7 @@ public class RepositorioVehiculos<T extends Vehiculo> implements Serializable {
 
     public boolean eliminarVehiculo(String marca, String modelo) {
         return inventario.removeIf(v -> v.getMarca().equalsIgnoreCase(marca) && 
-                                        v.getModelo().equalsIgnoreCase(modelo));
+                                    v.getModelo().equalsIgnoreCase(modelo));
     }
 
     public T buscarVehiculo(String marca, String modelo) {
@@ -64,8 +66,8 @@ public class RepositorioVehiculos<T extends Vehiculo> implements Serializable {
     public List<T> buscarTodosPorMarcaYModelo(String marca, String modelo) {
         return inventario.stream()
                 .filter(v -> v.getMarca().equalsIgnoreCase(marca) && 
-                             v.getModelo().equalsIgnoreCase(modelo))
-                .collect(Collectors.toList()); //Retorna todos los resultados como una lista
+                              v.getModelo().equalsIgnoreCase(modelo))
+                .collect(Collectors.toList());
     }
     
     public List<T> obtenerTodos() {
